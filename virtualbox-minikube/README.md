@@ -1,8 +1,10 @@
 # Installing minikube with Vagrant and Ansible
 
-> __IMPORTANCE NOTE__: Since the minikube support the several drivers (Including podman, virtualbox, docker etc), I have stopped using minikube inside a Vagrant + VirtualBox VM. Hence I am not maintaining this Vagrant use case folder as well.
+> __IMPORTANCE NOTE__: Minikube now supports various drivers (including Podman, VirtualBox, Docker, etc.), so I have stopped using Minikube within a Vagrant + VirtualBox VM. As a result, I am no longer maintaining this Vagrant use case folder.
 
-```
+Refer to [minikube](https://www.iamgini.com/minikube) notes for more details.
+
+```shell
 ## Install minikube
 $ curl -LO https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
 $ sudo install minikube-linux-amd64 /usr/local/bin/minikube
@@ -48,7 +50,7 @@ minikube-m02   NotReady   <none>          8s    v1.26.3
 
 ## NOT in USE: Old method using the Vagrant + VirtualBox
 
-This is a simple repo to demonstrate how to install minikube inside a virtualbox vm using Vagrant and Ansible as provisioner. 
+This is a simple repo to demonstrate how to install minikube inside a virtualbox vm using Vagrant and Ansible as provisioner.
 
 Watch **[video](https://www.youtube.com/watch?v=xPLQqHbp9BM&t=2s)** for detailed explanaton.
 
@@ -60,8 +62,8 @@ If you are planning to other variants of box (ubuntu or debian instead of CentOS
 ## How to use this repo - Quick Overview
 
 1. Install Vagrant
-   
-2. ~~Install Ansible~~ 
+
+2. ~~Install Ansible~~
 
 **Update**
 Since some of the users reported that, they are using Windows and unable to use Ansible, I have adjusted the Vagrantfile to use with `ansible_local` option.
