@@ -1,9 +1,15 @@
 IMAGE_NAME = "generic/rhel8"
-VM_NAME = "RHEL8-Sub"
+VM_NAME = "rhel8-eap"
 NODES = 1
 
 Vagrant.configure("2") do |config|
     config.ssh.insert_key = false
+
+    # single command trigger
+    # config.trigger.before :destroy do |trigger|
+    #     trigger.info = "Custom command to unsubscribe from Red Hat"
+    #     trigger.run = {inline: "~/bin/rh-sub.sh"}
+    # end
 
     (1..NODES).each do |i|
         config.vm.define "#{VM_NAME}-#{i}" do |node|
@@ -16,7 +22,7 @@ Vagrant.configure("2") do |config|
             #    name: 'vboxnet12', adapter: 2
 
                          #type: "dhcp",
-            node.vm.network "private_network", ip: "192.168.57.91"
+            node.vm.network "private_network", ip: "192.168.57.182"
                 #type: "dhcp",
                 #name: 'vboxnet0'
 
@@ -47,6 +53,8 @@ Vagrant.configure("2") do |config|
                 ansible.compatibility_mode = "2.0"
                 ansible.playbook = "files/config.yaml"
             end
+
+
         end
     end
 
